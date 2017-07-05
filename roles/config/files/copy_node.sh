@@ -1,0 +1,1 @@
+cp -R ./node-v6.10.2-linux-x64/* /usr/local 

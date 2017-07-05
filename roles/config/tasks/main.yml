@@ -1,0 +1,15 @@
+- name: Download Node.js
+  get_url:
+    url: https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-x64.tar.xz
+    dest: ./node.tar.xz
+    
+- name: Extract node
+  unarchive:
+    src: ./node.tar.xz
+    dest: ./
+    remote_src: True
+  register: extractnode
+    
+- name: Copy node to /usr/local
+  when: extractnode|success
+  script: copy_node.sh
